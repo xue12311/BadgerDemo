@@ -1,2 +1,1 @@
-# BadgerDemo
-角标demo
+# app常用工具类
