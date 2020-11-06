@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 //延迟显示角标个数，解决小米不正确显示角标
                 new WeakHandler().postDelayed(() -> {
-                    ActivityUtils.startHomeActivity();
                     int badgeCount = 0;
                     try {
                         badgeCount = Integer.parseInt(etNum.getText().toString());
@@ -34,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     boolean success = ShortcutBadger.applyCount(MainActivity.this, badgeCount);
                     if (success) {
+                        ActivityUtils.startHomeActivity();
                         ToastUtils.showShort("角标设置成功，角标数量: " + badgeCount);
                     } else {
                         ToastUtils.showShort("角标设置失败");
