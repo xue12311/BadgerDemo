@@ -2,10 +2,11 @@ package com.zjx.app_common_library
 
 import android.content.Context
 import androidx.multidex.MultiDex
-import com.blankj.utilcode.util.*
+import com.blankj.utilcode.util.AppUtils
+import com.blankj.utilcode.util.SPStaticUtils
+import com.blankj.utilcode.util.SPUtils
+import com.blankj.utilcode.util.Utils
 import com.zjx.app_common_library.base.BaseApp
-import com.zjx.app_common_library.network.RxHttpManager
-import rxhttp.wrapper.param.RxHttp
 
 
 //自定义Application
@@ -26,7 +27,7 @@ open class App : BaseApp() {
 //            .setConsoleSwitch(BuildConfig.DEBUG)
 //            //设置 log 全局 tag
 //            .setGlobalTag("zjx")
-        //网络请求初始化
-        RxHttpManager.init()
+//        //网络请求初始化
+//        RxHttpManager.init()
     }
 }
