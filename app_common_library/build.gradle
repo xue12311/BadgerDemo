@@ -2,10 +2,10 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'kotlin-android-extensions'
+    id 'kotlin-parcelize'
     id 'com.github.dcendents.android-maven'
 }
-group='com.github.xue12311'
+group = 'com.github.xue12311'
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
@@ -32,9 +32,7 @@ android {
     }
     buildFeatures {
         dataBinding = true
-    }
-    androidExtensions {
-        experimental = true
+        viewBinding = true
     }
     kotlinOptions {
         jvmTarget = '1.8'
@@ -58,7 +56,7 @@ dependencies {
     api 'androidx.recyclerview:recyclerview:1.1.0'
     api 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     //RecyclerView 框架
-    api  'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6'
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6'
     //multidex 分包
     api 'androidx.multidex:multidex:2.0.1'
     //帮助类
