@@ -2,6 +2,8 @@ package com.zjx.app_common_library.base
 
 import android.os.Bundle
 import androidx.fragment.app.FragmentActivity
+import com.blankj.utilcode.util.StringUtils
+import com.blankj.utilcode.util.ToastUtils
 
 
 abstract class BaseFragmentActivity : FragmentActivity() {
@@ -17,5 +19,10 @@ abstract class BaseFragmentActivity : FragmentActivity() {
         initView()
         initListener()
         initData()
+    }
+    fun showToast(message: String?) {
+        if (!StringUtils.isTrimEmpty(message)) {
+            ToastUtils.showShort(message)
+        }
     }
 }

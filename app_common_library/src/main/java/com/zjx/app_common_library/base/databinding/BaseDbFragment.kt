@@ -9,6 +9,8 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
+import com.blankj.utilcode.util.StringUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.zjx.app_common_library.base.BaseViewModel
 import com.zjx.app_common_library.utils.ext.getVmClazz
 
@@ -89,6 +91,12 @@ abstract class BaseDbFragment<AVM : BaseViewModel, DB : ViewDataBinding> : Fragm
                 lazyLoadData()
             }
             isFirst = false
+        }
+    }
+
+    fun showToast(message: String?) {
+        if (!StringUtils.isTrimEmpty(message)) {
+            ToastUtils.showShort(message)
         }
     }
 }

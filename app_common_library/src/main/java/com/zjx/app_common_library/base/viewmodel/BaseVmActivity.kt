@@ -3,6 +3,8 @@ package com.zjx.app_common_library.base.viewmodel
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.blankj.utilcode.util.StringUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.zjx.app_common_library.base.BaseViewModel
 import com.zjx.app_common_library.utils.ext.getVmClazz
 
@@ -37,7 +39,11 @@ abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity() {
         return ViewModelProvider(this).get(getVmClazz(this) as Class<VM>)
     }
 
-
+    fun showToast(message: String?) {
+        if (!StringUtils.isTrimEmpty(message)) {
+            ToastUtils.showShort(message)
+        }
+    }
     /**
      * 创建观察者
      */

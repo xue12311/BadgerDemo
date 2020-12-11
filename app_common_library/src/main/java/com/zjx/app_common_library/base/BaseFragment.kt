@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
+import com.blankj.utilcode.util.StringUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.zjx.app_common_library.utils.ext.getVmClazz
 
 abstract class BaseFragment : Fragment() {
@@ -70,6 +72,11 @@ abstract class BaseFragment : Fragment() {
                 lazyLoadData()
             }
             isFirst = false
+        }
+    }
+    fun showToast(message: String?) {
+        if (!StringUtils.isTrimEmpty(message)) {
+            ToastUtils.showShort(message)
         }
     }
 }
