@@ -174,6 +174,11 @@ object BigDecimalUtils {
     }
 
     @JvmStatic
+    fun toPlainString(value: Long): String {
+        return BigDecimal.valueOf(value).stripTrailingZeros().toPlainString()
+    }
+
+    @JvmStatic
     fun isZero(value: Int): Boolean {
         return BigDecimal(value).compareTo(BigDecimal(0)) == 0
     }
