@@ -1,44 +1,36 @@
-package com.zjx.app_common_library.base.databinding
+package com.zjx.app_common_library.base.viewbinding
 
 import android.os.Bundle
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
+import android.view.LayoutInflater
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.viewbinding.ViewBinding
 import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.zjx.app_common_library.base.BaseViewModel
 import com.zjx.app_common_library.utils.ext.getVmClazz
 
-abstract class BaseDbVmFragmentActivity<VM : BaseViewModel, DB : ViewDataBinding> :
-    FragmentActivity() {
-
+abstract class BaseVbVmFragmentActivity<VM : BaseViewModel, VB : ViewBinding> : FragmentActivity() {
     lateinit var mViewModel: VM
-
-    lateinit var mDataBinding: DB
-
-    abstract fun layoutId(): Int
-
+    lateinit var mViewBinding: VB
     abstract fun initView()
+    open fun initListener() {}
     open fun initData() {}
     open fun initWindowParam() {}
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initWindowParam()
-        createViewDataBinding()
+        mViewBinding = createViewBinding()
+        setContentView(mViewBinding.root)
         mViewModel = createViewModel()
         initView()
+        initListener()
         createObserver()
         initData()
     }
 
-    /**
-     * 创建DataBinding
-     */
-    private fun createViewDataBinding() {
-        mDataBinding = DataBindingUtil.setContentView(this, layoutId())
-        mDataBinding.lifecycleOwner = this
-    }
 
     /**
      * 创建viewModel
@@ -47,6 +39,14 @@ abstract class BaseDbVmFragmentActivity<VM : BaseViewModel, DB : ViewDataBinding
         return ViewModelProvider(this).get(getVmClazz(this) as Class<VM>)
     }
 
+    /**
+     * 创建ViewBinding
+     */
+    private fun createViewBinding(): VB {
+        val clazz = getVmClazz<Class<VB>>(this, 1)
+        val method = clazz.getMethod("inflate", LayoutInflater::class.java)
+        return method.invoke(null, layoutInflater) as VB
+    }
 
     /**
      * 创建观察者
@@ -58,5 +58,4 @@ abstract class BaseDbVmFragmentActivity<VM : BaseViewModel, DB : ViewDataBinding
             ToastUtils.showShort(message)
         }
     }
-
 }

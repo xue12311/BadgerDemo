@@ -20,7 +20,7 @@ abstract class BaseDbVmActivity<VM : BaseViewModel, DB : ViewDataBinding> : AppC
 
     lateinit var mViewModel: VM
 
-    lateinit var mDatabind: DB
+    lateinit var mDataBinding: DB
 
     abstract fun layoutId(): Int
 
@@ -44,8 +44,8 @@ abstract class BaseDbVmActivity<VM : BaseViewModel, DB : ViewDataBinding> : AppC
      * 创建DataBinding
      */
     private fun createViewDataBinding() {
-        mDatabind = DataBindingUtil.setContentView(this, layoutId())
-        mDatabind.lifecycleOwner = this
+        mDataBinding = DataBindingUtil.setContentView(this, layoutId())
+        mDataBinding.lifecycleOwner = this
     }
 
     /**
