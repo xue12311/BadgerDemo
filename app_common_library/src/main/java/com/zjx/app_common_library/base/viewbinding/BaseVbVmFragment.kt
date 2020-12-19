@@ -8,8 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import com.blankj.utilcode.util.StringUtils
-import com.blankj.utilcode.util.ToastUtils
 import com.zjx.app_common_library.base.BaseViewModel
 import com.zjx.app_common_library.utils.ext.getVmClazz
 
@@ -98,11 +96,5 @@ abstract class BaseVbVmFragment<AVM : BaseViewModel, VB : ViewBinding> : Fragmen
     override fun onDestroyView() {
         _mViewBinding = null
         super.onDestroyView()
-    }
-
-    fun showToast(message: String?) {
-        if (!StringUtils.isTrimEmpty(message)) {
-            ToastUtils.showShort(message)
-        }
     }
 }

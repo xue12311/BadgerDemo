@@ -3,11 +3,8 @@ package com.zjx.app_common_library.base.viewbinding
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import com.blankj.utilcode.util.StringUtils
-import com.blankj.utilcode.util.ToastUtils
 import com.zjx.app_common_library.base.BaseViewModel
 import com.zjx.app_common_library.utils.ext.getVmClazz
 
@@ -54,10 +51,4 @@ abstract class BaseVbVmActivity<VM : BaseViewModel, VB : ViewBinding> : AppCompa
      * 创建观察者
      */
     abstract fun createObserver()
-
-    fun showToast(message: String?) {
-        if (!StringUtils.isTrimEmpty(message)) {
-            ToastUtils.showShort(message)
-        }
-    }
 }

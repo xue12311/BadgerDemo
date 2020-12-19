@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.viewbinding.ViewBinding
-import com.blankj.utilcode.util.StringUtils
-import com.blankj.utilcode.util.ToastUtils
 import com.zjx.app_common_library.utils.ext.getVmClazz
 
 abstract class BaseVbFragment<VB : ViewBinding> : Fragment() {
@@ -82,11 +80,5 @@ abstract class BaseVbFragment<VB : ViewBinding> : Fragment() {
     override fun onDestroyView() {
         _mViewBinding = null
         super.onDestroyView()
-    }
-
-    fun showToast(message: String?) {
-        if (!StringUtils.isTrimEmpty(message)) {
-            ToastUtils.showShort(message)
-        }
     }
 }
