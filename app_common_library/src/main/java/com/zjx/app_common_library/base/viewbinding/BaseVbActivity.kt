@@ -20,7 +20,6 @@ abstract class BaseVbActivity<VB : ViewBinding> : AppCompatActivity() {
         setContentView(mViewBinding.root)
         initView()
         initListener()
-        createObserver()
         initData()
     }
 
@@ -33,8 +32,4 @@ abstract class BaseVbActivity<VB : ViewBinding> : AppCompatActivity() {
         return method.invoke(null, layoutInflater) as VB
     }
 
-    /**
-     * 创建观察者
-     */
-    abstract fun createObserver()
 }

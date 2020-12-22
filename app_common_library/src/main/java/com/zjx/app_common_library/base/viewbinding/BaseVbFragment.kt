@@ -32,7 +32,6 @@ abstract class BaseVbFragment<VB : ViewBinding> : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         onVisible()
-        createObserver()
     }
 
     /**
@@ -52,11 +51,6 @@ abstract class BaseVbFragment<VB : ViewBinding> : Fragment() {
     //首次加载
     abstract fun firstLazyLoadData()
 
-
-    /**
-     * 创建观察者
-     */
-    abstract fun createObserver()
 
     override fun onResume() {
         super.onResume()
