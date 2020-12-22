@@ -1,4 +1,4 @@
-package com.zjx.ecommerce.utils.app_common_library.livedata
+package com.zjx.app_common_library.livedata
 
 import androidx.lifecycle.MutableLiveData
 

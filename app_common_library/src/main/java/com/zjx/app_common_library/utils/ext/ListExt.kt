@@ -1,7 +1,5 @@
 package com.zjx.app_common_library.utils.ext
 
-import com.blankj.utilcode.util.StringUtils
-
 
 fun List<String>.forEachListToString(): String {
     var mStringBuffer = StringBuffer()

@@ -1,4 +1,4 @@
-package com.zjx.ecommerce.utils.app_common_library.ext
+package com.zjx.app_common_library.utils.ext
 
 import com.google.android.material.tabs.TabLayout
 
