@@ -39,10 +39,10 @@ abstract class BaseVmFragment<AVM : BaseViewModel> : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        onVisible()
-        mViewModel = getActivityViewModel()
         initView(view)
         initListener()
+        onVisible()
+        mViewModel = getActivityViewModel()
         createObserver()
     }
     /**

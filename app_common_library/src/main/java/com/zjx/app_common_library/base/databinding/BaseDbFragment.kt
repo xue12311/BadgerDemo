@@ -24,6 +24,8 @@ abstract class BaseDbFragment<AVM : BaseViewModel, DB : ViewDataBinding> : Fragm
 
     lateinit var mViewModel: AVM
     private var isFirst: Boolean = true
+    open fun initView() {}
+    open fun initListener() {}
 
     /**
      * 当前Fragment绑定的视图布局
@@ -31,9 +33,9 @@ abstract class BaseDbFragment<AVM : BaseViewModel, DB : ViewDataBinding> : Fragm
     abstract fun layoutId(): Int
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         mDataBinding = DataBindingUtil.inflate(inflater, layoutId(), container, false)
         return mDataBinding.root
@@ -41,6 +43,8 @@ abstract class BaseDbFragment<AVM : BaseViewModel, DB : ViewDataBinding> : Fragm
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
+        initListener()
         onVisible()
         mViewModel = getActivityViewModel()
         createObserver()
@@ -56,7 +60,7 @@ abstract class BaseDbFragment<AVM : BaseViewModel, DB : ViewDataBinding> : Fragm
      * 获得activity中的 ViewModel
      */
     private fun <AVM : BaseViewModel> getActivityViewModel(): AVM =
-        ViewModelProvider(requireActivity()).get(getVmClazz(requireActivity()) as Class<AVM>)
+            ViewModelProvider(requireActivity()).get(getVmClazz(requireActivity()) as Class<AVM>)
 
 
     /**

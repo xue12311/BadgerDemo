@@ -14,7 +14,8 @@ abstract class BaseVbFragment<VB : ViewBinding> : Fragment() {
     val mViewBinding: VB
         get() = _mViewBinding!!
     private var isFirst: Boolean = true
-
+    open fun initView() {}
+    open fun initListener() {}
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -26,6 +27,8 @@ abstract class BaseVbFragment<VB : ViewBinding> : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
+        initListener()
         onVisible()
     }
 
