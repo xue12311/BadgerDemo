@@ -18,11 +18,6 @@ abstract class BaseVbVmFragment<AVM : BaseViewModel, VB : ViewBinding> : Fragmen
     lateinit var mViewModel: AVM
     private var isFirst: Boolean = true
 
-    /**
-     * 当前Fragment绑定的视图布局
-     */
-    abstract fun layoutId(): Int
-
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
