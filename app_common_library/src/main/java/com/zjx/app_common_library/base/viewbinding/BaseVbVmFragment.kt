@@ -54,7 +54,8 @@ abstract class BaseVbVmFragment<AVM : BaseViewModel, VB : ViewBinding> : Fragmen
      */
     private fun createViewBinding(): VB {
         val clazz = getVmClazz<Class<VB>>(this, 1)
-        val method = clazz.getMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.java)
+        val method = clazz.getMethod("inflate", LayoutInflater::class.java)
+//        val method = clazz.getMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.java)
         return method.invoke(null, layoutInflater) as VB
     }
 
