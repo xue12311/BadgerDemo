@@ -8,7 +8,7 @@ import com.zjx.app_common_library.utils.ext.getVmClazz
 
 abstract class BaseVbActivity<VB : ViewBinding> : AppCompatActivity() {
     lateinit var mViewBinding: VB
-    abstract fun initView()
+    open fun initView(){}
     open fun initListener() {}
     open fun initData() {}
     open fun initWindowParam() {}

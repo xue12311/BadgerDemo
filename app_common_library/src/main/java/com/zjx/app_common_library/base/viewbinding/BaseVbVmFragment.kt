@@ -17,7 +17,8 @@ abstract class BaseVbVmFragment<AVM : BaseViewModel, VB : ViewBinding> : Fragmen
         get() = _mViewBinding!!
     lateinit var mViewModel: AVM
     private var isFirst: Boolean = true
-
+    open fun initView() {}
+    open fun initListener() {}
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -29,6 +30,8 @@ abstract class BaseVbVmFragment<AVM : BaseViewModel, VB : ViewBinding> : Fragmen
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
+        initListener()
         onVisible()
         mViewModel = getActivityViewModel()
         createObserver()

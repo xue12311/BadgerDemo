@@ -13,7 +13,7 @@ abstract class BaseVbVmActivity<VM : BaseViewModel, VB : ViewBinding> : AppCompa
     lateinit var mViewModel: VM
 
     lateinit var mViewBinding: VB
-    abstract fun initView()
+    open fun initView(){}
     open fun initListener() {}
     open fun initData() {}
     open fun initWindowParam() {}
