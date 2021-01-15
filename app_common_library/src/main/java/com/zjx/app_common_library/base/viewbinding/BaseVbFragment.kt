@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.viewbinding.ViewBinding
-import com.zjx.app_common_library.utils.ext.getVmClazz
+import com.zjx.app_common_library.utils.inflateBindingWithGeneric
 
 abstract class BaseVbFragment<VB : ViewBinding> : Fragment() {
     private var _mViewBinding: VB? = null
@@ -21,7 +21,7 @@ abstract class BaseVbFragment<VB : ViewBinding> : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        _mViewBinding = createViewBinding()
+        _mViewBinding = inflateBindingWithGeneric(layoutInflater, container, false)
         return _mViewBinding!!.root
     }
 
@@ -30,16 +30,6 @@ abstract class BaseVbFragment<VB : ViewBinding> : Fragment() {
         initView()
         initListener()
         onVisible()
-    }
-
-    /**
-     * 创建ViewBinding
-     */
-    private fun createViewBinding(): VB {
-        val clazz = getVmClazz<Class<VB>>(this)
-        val method = clazz.getMethod("inflate", LayoutInflater::class.java)
-//        val method = clazz.getMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.java)
-        return method.invoke(null, layoutInflater) as VB
     }
 
     /**

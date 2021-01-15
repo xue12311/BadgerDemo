@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.zjx.app_common_library.base.BaseViewModel
 import com.zjx.app_common_library.utils.ext.getVmClazz
+import com.zjx.app_common_library.utils.inflateBindingWithGeneric
 
 abstract class BaseVbVmFragment<AVM : BaseViewModel, VB : ViewBinding> : Fragment() {
     private var _mViewBinding: VB? = null
@@ -24,7 +25,7 @@ abstract class BaseVbVmFragment<AVM : BaseViewModel, VB : ViewBinding> : Fragmen
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        _mViewBinding = createViewBinding()
+        _mViewBinding = inflateBindingWithGeneric(layoutInflater, container, false)
         return _mViewBinding!!.root
     }
 
@@ -36,13 +37,6 @@ abstract class BaseVbVmFragment<AVM : BaseViewModel, VB : ViewBinding> : Fragmen
         mViewModel = getActivityViewModel()
         createObserver()
     }
-
-    /**
-     * 创建viewModel
-     */
-//    private fun createViewModel(): VM {
-//        return ViewModelProvider(this).get(getVmClazz(this) as Class<VM>)
-//    }
     /**
      * 获得activity中的 ViewModel
      */
