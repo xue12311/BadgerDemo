@@ -2,10 +2,7 @@ package com.zjx.app_common_library.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 
 /**
  * 作者　: hegaojian
@@ -33,4 +30,39 @@ open class BaseViewModel : ViewModel() {
             }
         }
     }
+
+    /**
+     * @param block     协程代码块，运行在UI线程
+     * @param onError   异常回调，运行在UI线程
+     * @param onStart   协程开始回调，运行在UI线程
+     * @param onFinally 协程结束回调，不管成功/失败，都会回调，运行在UI线程
+     */
+    fun launch(
+            block: suspend CoroutineScope.() -> Unit,
+            onError: ((Throwable) -> Unit)? = null,
+            onStart: (() -> Unit)? = null,
+            onFinally: (() -> Unit)? = null
+    ): Job {
+        return viewModelScope.launch {
+            try {
+                coroutineScope {
+                    onStart?.invoke()
+                    block()
+                }
+            } catch (e: Throwable) {
+                if (onError != null && isActive) {
+                    try {
+                        onError(e)
+                    } catch (e: Throwable) {
+                        e.printStackTrace()
+                    }
+                } else {
+                    e.printStackTrace()
+                }
+            } finally {
+                onFinally?.invoke()
+            }
+        }
+    }
+
 }
