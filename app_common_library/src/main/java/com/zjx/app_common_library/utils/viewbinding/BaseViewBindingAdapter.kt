@@ -3,8 +3,6 @@ package com.zjx.app_common_library.utils.viewbinding
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
 import com.chad.library.adapter.base.BaseQuickAdapter
-import com.dylanc.viewbinding.BaseViewBindingHolder
-import com.dylanc.viewbinding.BindingViewHolder
 import com.zjx.app_common_library.utils.inflateBindingWithGeneric
 
 

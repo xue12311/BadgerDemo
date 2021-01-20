@@ -16,7 +16,7 @@
 
 @file:Suppress("unused")
 
-package com.dylanc.viewbinding
+package com.zjx.app_common_library.utils.viewbinding
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
