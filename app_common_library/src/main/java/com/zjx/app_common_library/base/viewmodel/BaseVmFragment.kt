@@ -30,9 +30,9 @@ abstract class BaseVmFragment<AVM : BaseViewModel> : Fragment() {
     abstract fun initView(view: View)
     open fun initListener() {}
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(layoutId(), container, false)
     }
@@ -55,7 +55,7 @@ abstract class BaseVmFragment<AVM : BaseViewModel> : Fragment() {
      * 获得activity中的 ViewModel
      */
     private fun <AVM : BaseViewModel> getActivityViewModel(): AVM =
-        ViewModelProvider(requireActivity()).get(getVmClazz(requireActivity()) as Class<AVM>)
+            ViewModelProvider(requireActivity()).get(getVmClazz(requireActivity()) as Class<AVM>)
 
     /**
      * 懒加载
@@ -69,7 +69,7 @@ abstract class BaseVmFragment<AVM : BaseViewModel> : Fragment() {
     /**
      * 创建观察者
      */
-    abstract fun createObserver()
+    open fun createObserver() {}
 
     override fun onResume() {
         super.onResume()

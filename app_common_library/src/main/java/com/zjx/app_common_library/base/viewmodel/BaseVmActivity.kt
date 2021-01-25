@@ -40,6 +40,6 @@ abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity() {
     /**
      * 创建观察者
      */
-    abstract fun createObserver()
+    open fun createObserver(){}
 
 }

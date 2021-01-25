@@ -75,7 +75,7 @@ abstract class BaseDbFragment<AVM : BaseViewModel, DB : ViewDataBinding> : Fragm
     /**
      * 创建观察者
      */
-    abstract fun createObserver()
+    open fun createObserver() {}
 
     override fun onResume() {
         super.onResume()

@@ -56,6 +56,6 @@ abstract class BaseDbVmActivity<VM : BaseViewModel, DB : ViewDataBinding> : AppC
     /**
      * 创建观察者
      */
-    abstract fun createObserver()
+    open fun createObserver(){}
 
 }

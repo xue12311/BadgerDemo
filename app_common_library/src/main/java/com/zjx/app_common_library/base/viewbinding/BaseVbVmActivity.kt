@@ -41,5 +41,5 @@ abstract class BaseVbVmActivity<VM : BaseViewModel, VB : ViewBinding> : AppCompa
     /**
      * 创建观察者
      */
-    abstract fun createObserver()
+    open fun createObserver() {}
 }
