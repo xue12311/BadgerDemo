@@ -25,3 +25,29 @@ fun <T> List<T>.forEachListToString(getParameterToString: (T) -> String?): Strin
     }
     return mStringBuffer.toString()
 }
+
+fun <T> List<T>.forEachListToString(getParameterToString: (T) -> String?, divider: String = ","): String {
+    var mStringBuffer = StringBuffer()
+    this.forEach {
+        val sParameter = getParameterToString(it)
+        if (sParameter != null && sParameter.isNoTrimEmpty()) {
+            if (mStringBuffer.toString().isNoTrimEmpty()) {
+                mStringBuffer.append(divider)
+            }
+            mStringBuffer.append(sParameter)
+        }
+    }
+    return mStringBuffer.toString()
+}
+
+
+fun List<String>.forEachListToString(divider: String = ","): String {
+    var mStringBuffer = StringBuffer()
+    this.forEach {
+        if (mStringBuffer.toString().isNoTrimEmpty()) {
+            mStringBuffer.append(divider)
+        }
+        mStringBuffer.append(it)
+    }
+    return mStringBuffer.toString()
+}
