@@ -126,7 +126,18 @@ object BigDecimalUtils {
     fun compareTo(value: Float, num: Float): Int {
         return value.toBigDecimal().compareTo(num.toBigDecimal())
     }
-
+    /**
+     * 两个数值比较
+     * @param value Float
+     * @param num Float
+     * @return Int -1: value < num
+     * @return Int 0: value = num
+     * @return Int 1: value > num
+     */
+    @JvmStatic
+    fun compareTo(value: BigDecimal, num: BigDecimal): Int {
+        return value.compareTo(num)
+    }
     @JvmStatic
     fun toPlainString(
             value: Double,
