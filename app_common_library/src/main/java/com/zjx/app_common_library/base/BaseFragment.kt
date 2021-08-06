@@ -34,16 +34,16 @@ abstract class BaseFragment : Fragment() {
     }
 
 
-    /**
-     * 获得activity中的 ViewModel
-     */
-    fun <AVM : BaseViewModel> getActivityViewModel(): AVM? {
-        if (activity != null) {
-            return ViewModelProvider(requireActivity()).get(getVmClazz(requireActivity()) as Class<AVM>)
-        } else {
-            return null
-        }
-    }
+//    /**
+//     * 获得activity中的 ViewModel
+//     */
+//    fun <AVM : BaseViewModel> getActivityViewModel(): AVM? {
+//        if (activity != null) {
+//            return ViewModelProvider(requireActivity()).get(getVmClazz(requireActivity()) as Class<AVM>)
+//        } else {
+//            return null
+//        }
+//    }
 
     /**
      * 懒加载

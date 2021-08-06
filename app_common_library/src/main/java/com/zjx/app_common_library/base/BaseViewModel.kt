@@ -8,6 +8,7 @@ import kotlinx.coroutines.*
  * 作者　: hegaojian
  * 时间　: 2019/12/12
  * 描述　: ViewModel的基类
+ * 注意 : ViewModel 绝不能引用视图、Lifecycle 或可能存储对 Activity 上下文的引用的任何类
  */
 open class BaseViewModel : ViewModel() {
     /**
@@ -22,12 +23,8 @@ open class BaseViewModel : ViewModel() {
     }
 
     fun launchIO(block: suspend CoroutineScope.() -> Unit) {
-        viewModelScope.launch {
-            runCatching {
-                withContext(Dispatchers.IO) {
-                    block()
-                }
-            }
+        viewModelScope.launch(Dispatchers.IO) {
+            block()
         }
     }
 
@@ -38,10 +35,10 @@ open class BaseViewModel : ViewModel() {
      * @param onFinally 协程结束回调，不管成功/失败，都会回调，运行在UI线程
      */
     fun launch(
-            block: suspend CoroutineScope.() -> Unit,
-            onError: ((Throwable) -> Unit)? = null,
-            onStart: (() -> Unit)? = null,
-            onFinally: (() -> Unit)? = null
+        block: suspend CoroutineScope.() -> Unit,
+        onError: ((Throwable) -> Unit)? = null,
+        onStart: (() -> Unit)? = null,
+        onFinally: (() -> Unit)? = null
     ): Job {
         return viewModelScope.launch {
             try {
