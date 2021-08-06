@@ -9,7 +9,15 @@ object BigDecimalUtils {
 
     // 加法运算
     @JvmStatic
+    fun add(d1: Int, d2: Int): Int = add(BigDecimal(d1), BigDecimal(d2)).toInt()
+
+    // 加法运算
+    @JvmStatic
     fun add(d1: Double, d2: Double): Double = add(BigDecimal.valueOf(d1), BigDecimal.valueOf(d2))
+
+    // 减法运算
+    @JvmStatic
+    fun sub(d1: Int, d2: Int): Int = sub(BigDecimal(d1), BigDecimal(d2)).toInt()
 
     // 减法运算
     @JvmStatic
@@ -17,8 +25,12 @@ object BigDecimalUtils {
 
     // 乘法运算
     @JvmStatic
+    fun mul(d1: Int, d2: Int): Int = BigDecimal(d1).multiply(BigDecimal(d2)).toInt()
+
+    // 乘法运算
+    @JvmStatic
     fun mul(d1: Double, d2: Double, decimalPoint: Int): Double =
-            mul(BigDecimal.valueOf(d1), BigDecimal.valueOf(d2), decimalPoint)
+        mul(BigDecimal.valueOf(d1), BigDecimal.valueOf(d2), decimalPoint)
 
     // 除法运算
     @JvmStatic
@@ -32,37 +44,37 @@ object BigDecimalUtils {
 
     @JvmStatic
     fun div(d1: Double, d2: Double, scale: Int = DECIMAL_POINT_NUMBER): Double =
-            div(BigDecimal.valueOf(d1), BigDecimal.valueOf(d2), scale)
+        div(BigDecimal.valueOf(d1), BigDecimal.valueOf(d2), scale)
 
 
     // 加法运算
     @JvmStatic
     fun add(b1: BigDecimal, b2: BigDecimal): Double =
-            b1.add(b2).setScale(DECIMAL_POINT_NUMBER, BigDecimal.ROUND_DOWN)
-                    .toDouble()
+        b1.add(b2).setScale(DECIMAL_POINT_NUMBER, BigDecimal.ROUND_DOWN)
+            .toDouble()
 
     // 减法运算
     @JvmStatic
     fun sub(b1: BigDecimal, b2: BigDecimal): Double = b1.subtract(b2)
-            .setScale(DECIMAL_POINT_NUMBER, BigDecimal.ROUND_DOWN).toDouble()
+        .setScale(DECIMAL_POINT_NUMBER, BigDecimal.ROUND_DOWN).toDouble()
 
     // 乘法运算
     @JvmStatic
     fun mul(b1: BigDecimal, b2: BigDecimal, decimalPoint: Int): Double =
-            b1.multiply(b2).setScale(decimalPoint, BigDecimal.ROUND_DOWN)
-                    .toDouble()
+        b1.multiply(b2).setScale(decimalPoint, BigDecimal.ROUND_DOWN)
+            .toDouble()
 
     // 除法运算
     @JvmStatic
     fun div(b1: BigDecimal, b2: BigDecimal): Double =
-            b1.divide(b2, DECIMAL_POINT_NUMBER, BigDecimal.ROUND_DOWN)
-                    .toDouble()
+        b1.divide(b2, DECIMAL_POINT_NUMBER, BigDecimal.ROUND_DOWN)
+            .toDouble()
 
     // 除法运算
     @JvmStatic
     fun div(b1: BigDecimal, b2: BigDecimal, scale: Int = DECIMAL_POINT_NUMBER): Double =
-            b1.divide(b2, scale, BigDecimal.ROUND_DOWN)
-                    .toDouble()
+        b1.divide(b2, scale, BigDecimal.ROUND_DOWN)
+            .toDouble()
 
     /**
      * 数值是否为 0
@@ -129,22 +141,22 @@ object BigDecimalUtils {
 
     @JvmStatic
     fun toPlainString(
-            value: Double,
-            roundingMode: RoundingMode = RoundingMode.DOWN
+        value: Double,
+        roundingMode: RoundingMode = RoundingMode.DOWN
     ) = toPlainString(BigDecimal.valueOf(value), 2, roundingMode)
 
     @JvmStatic
     fun toPlainString(
-            value: Double,
-            decimalPoint: Int = 2,
-            roundingMode: RoundingMode = RoundingMode.DOWN
+        value: Double,
+        decimalPoint: Int = 2,
+        roundingMode: RoundingMode = RoundingMode.DOWN
     ) = toPlainString(BigDecimal.valueOf(value), decimalPoint, roundingMode)
 
     @JvmStatic
     fun toPlainString(
-            value: BigDecimal,
-            decimalPoint: Int = 2,
-            roundingMode: RoundingMode = RoundingMode.DOWN
+        value: BigDecimal,
+        decimalPoint: Int = 2,
+        roundingMode: RoundingMode = RoundingMode.DOWN
     ): String {
         //stripTrailingZeros()  ---  去掉末尾0
         //toPlainString()  ---  转为普遍计数法输出
@@ -164,7 +176,7 @@ object BigDecimalUtils {
                 scale = decimalPoint
             }
             return value.setScale(scale, roundingMode).stripTrailingZeros()
-                    .toPlainString()
+                .toPlainString()
         }
     }
 
