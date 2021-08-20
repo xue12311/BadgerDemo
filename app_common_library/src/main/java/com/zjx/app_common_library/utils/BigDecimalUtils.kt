@@ -27,6 +27,47 @@ object BigDecimalUtils {
     fun addToInt(d1: Int, d2: Double, decimalPoint: Int = DECIMAL_POINT_NUMBER): Int =
         addToDouble(d1, d2, decimalPoint).toInt()
 
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    // 加法运算
+    @JvmStatic
+    fun add(d1: Int, d2: Int, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
+        addToDouble(d1, d2, decimalPoint)
+
+    // 加法运算
+    @JvmStatic
+    fun add(d1: Double, d2: Double, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
+        addToDouble(d1, d2, decimalPoint)
+
+    // 加法运算
+    @JvmStatic
+    fun add(d1: Double, d2: Int, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
+        addToDouble(d1, d2, decimalPoint)
+
+    // 加法运算
+    @JvmStatic
+    fun add(d1: Int, d2: Double, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
+        addToDouble(d1, d2, decimalPoint)
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    // 加法运算
+    @JvmStatic
+    fun add(d1: Int, d2: Int): Double = addToDouble(d1, d2, DECIMAL_POINT_NUMBER)
+
+    // 加法运算
+    @JvmStatic
+    fun add(d1: Double, d2: Double): Double = addToDouble(d1, d2, DECIMAL_POINT_NUMBER)
+
+    // 加法运算
+    @JvmStatic
+    fun add(d1: Double, d2: Int): Double = addToDouble(d1, d2, DECIMAL_POINT_NUMBER)
+
+    // 加法运算
+    @JvmStatic
+    fun add(d1: Int, d2: Double): Double = addToDouble(d1, d2, DECIMAL_POINT_NUMBER)
+
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     // 加法运算
     @JvmStatic
     fun addToDouble(d1: Int, d2: Int, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
@@ -47,6 +88,7 @@ object BigDecimalUtils {
     fun addToDouble(d1: Int, d2: Double, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
         add(BigDecimal(d1), BigDecimal.valueOf(d2), decimalPoint)
 
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     // 减法运算
     @JvmStatic
@@ -68,10 +110,54 @@ object BigDecimalUtils {
     fun subToInt(d1: Double, d2: Double, decimalPoint: Int = DECIMAL_POINT_NUMBER): Int =
         subToDouble(d1, d2, decimalPoint).toInt()
 
+
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    // 减法运算
+    @JvmStatic
+    fun sub(d1: Int, d2: Int, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
+        subToDouble(d1, d2, decimalPoint)
+
+    // 减法运算
+    @JvmStatic
+    fun sub(d1: Double, d2: Int, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
+        subToDouble(d1, d2, decimalPoint)
+
+    // 减法运算
+    @JvmStatic
+    fun sub(d1: Int, d2: Double, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
+        subToDouble(d1, d2, decimalPoint)
+
+    // 减法运算
+    @JvmStatic
+    fun sub(d1: Double, d2: Double, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
+        subToDouble(d1, d2, decimalPoint)
+
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    // 减法运算
+    @JvmStatic
+    fun sub(d1: Int, d2: Int): Double = subToDouble(d1, d2, DECIMAL_POINT_NUMBER)
+
+    // 减法运算
+    @JvmStatic
+    fun sub(d1: Double, d2: Int): Double = subToDouble(d1, d2, DECIMAL_POINT_NUMBER)
+
+    // 减法运算
+    @JvmStatic
+    fun sub(d1: Int, d2: Double): Double = subToDouble(d1, d2, DECIMAL_POINT_NUMBER)
+
+    // 减法运算
+    @JvmStatic
+    fun sub(d1: Double, d2: Double): Double = subToDouble(d1, d2, DECIMAL_POINT_NUMBER)
+
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
     // 减法运算
     @JvmStatic
     fun subToDouble(d1: Int, d2: Int, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
-        sub(BigDecimal(d1), BigDecimal(d2))
+        sub(BigDecimal(d1), BigDecimal(d2), decimalPoint)
 
     // 减法运算
     @JvmStatic
@@ -88,6 +174,8 @@ object BigDecimalUtils {
     fun subToDouble(d1: Double, d2: Double, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
         sub(BigDecimal.valueOf(d1), BigDecimal.valueOf(d2), decimalPoint)
 
+
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     // 乘法运算
     @JvmStatic
@@ -110,6 +198,51 @@ object BigDecimalUtils {
         mulToDouble(d1, d2, decimalPoint).toInt()
 
 
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    // 乘法运算
+    @JvmStatic
+    fun mul(d1: Int, d2: Int, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
+        mulToDouble(d1, d2, decimalPoint)
+
+    // 乘法运算
+    @JvmStatic
+    fun mul(d1: Int, d2: Double, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
+        mulToDouble(d1, d2, decimalPoint)
+
+    // 乘法运算
+    @JvmStatic
+    fun mul(d1: Double, d2: Int, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
+        mulToDouble(d1, d2, decimalPoint)
+
+    // 乘法运算
+    @JvmStatic
+    fun mul(d1: Double, d2: Double, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
+        mulToDouble(d1, d2, decimalPoint)
+
+
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    // 乘法运算
+    @JvmStatic
+    fun mul(d1: Int, d2: Int): Double = mulToDouble(d1, d2, DECIMAL_POINT_NUMBER)
+
+    // 乘法运算
+    @JvmStatic
+    fun mul(d1: Int, d2: Double): Double = mulToDouble(d1, d2, DECIMAL_POINT_NUMBER)
+
+    // 乘法运算
+    @JvmStatic
+    fun mul(d1: Double, d2: Int): Double = mulToDouble(d1, d2, DECIMAL_POINT_NUMBER)
+
+    // 乘法运算
+    @JvmStatic
+    fun mul(d1: Double, d2: Double): Double = mulToDouble(d1, d2, DECIMAL_POINT_NUMBER)
+
+
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
     // 乘法运算
     @JvmStatic
     fun mulToDouble(d1: Int, d2: Int, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
@@ -131,41 +264,151 @@ object BigDecimalUtils {
         mul(BigDecimal.valueOf(d1), BigDecimal.valueOf(d2), decimalPoint)
 
 
-    // 除法运算
-    @JvmStatic
-    fun divToInt(d1: Int, d2: Int, decimalPoint: Int = DECIMAL_POINT_NUMBER): Int = divToDouble(d1, d2, decimalPoint).toInt()
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     // 除法运算
     @JvmStatic
-    fun divToInt(d1: Long, d2: Long, decimalPoint: Int = DECIMAL_POINT_NUMBER): Int = divToDouble(d1, d2, decimalPoint).toInt()
+    fun divToInt(d1: Int, d2: Int, decimalPoint: Int = DECIMAL_POINT_NUMBER): Int =
+        divToDouble(d1, d2, decimalPoint).toInt()
 
     // 除法运算
     @JvmStatic
-    fun divToInt(d1: Double, d2: Double, decimalPoint: Int = DECIMAL_POINT_NUMBER):Int = divToDouble(d1, d2, decimalPoint).toInt()
+    fun divToInt(d1: Long, d2: Long, decimalPoint: Int = DECIMAL_POINT_NUMBER): Int =
+        divToDouble(d1, d2, decimalPoint).toInt()
 
     // 除法运算
     @JvmStatic
-    fun divToInt(d1: Double, d2: Long, decimalPoint: Int = DECIMAL_POINT_NUMBER):Int = divToDouble(d1, d2, decimalPoint).toInt()
+    fun divToInt(d1: Double, d2: Double, decimalPoint: Int = DECIMAL_POINT_NUMBER): Int =
+        divToDouble(d1, d2, decimalPoint).toInt()
 
     // 除法运算
     @JvmStatic
-    fun divToInt(d1: Long, d2: Double, decimalPoint: Int = DECIMAL_POINT_NUMBER): Int = divToDouble(d1, d2, decimalPoint).toInt()
+    fun divToInt(d1: Double, d2: Long, decimalPoint: Int = DECIMAL_POINT_NUMBER): Int =
+        divToDouble(d1, d2, decimalPoint).toInt()
 
     // 除法运算
     @JvmStatic
-    fun divToInt(d1: Int, d2: Long, decimalPoint: Int = DECIMAL_POINT_NUMBER):Int = divToDouble(d1, d2, decimalPoint).toInt()
+    fun divToInt(d1: Long, d2: Double, decimalPoint: Int = DECIMAL_POINT_NUMBER): Int =
+        divToDouble(d1, d2, decimalPoint).toInt()
 
     // 除法运算
     @JvmStatic
-    fun divToInt(d1: Long, d2: Int, decimalPoint: Int = DECIMAL_POINT_NUMBER):Int = divToDouble(d1, d2, decimalPoint).toInt()
+    fun divToInt(d1: Int, d2: Long, decimalPoint: Int = DECIMAL_POINT_NUMBER): Int =
+        divToDouble(d1, d2, decimalPoint).toInt()
 
     // 除法运算
     @JvmStatic
-    fun divToInt(d1: Int, d2: Double, decimalPoint: Int = DECIMAL_POINT_NUMBER):Int = divToDouble(d1, d2, decimalPoint).toInt()
+    fun divToInt(d1: Long, d2: Int, decimalPoint: Int = DECIMAL_POINT_NUMBER): Int =
+        divToDouble(d1, d2, decimalPoint).toInt()
 
     // 除法运算
     @JvmStatic
-    fun divToInt(d1: Double, d2: Int, decimalPoint: Int = DECIMAL_POINT_NUMBER):Int = divToDouble(d1, d2, decimalPoint).toInt()
+    fun divToInt(d1: Int, d2: Double, decimalPoint: Int = DECIMAL_POINT_NUMBER): Int =
+        divToDouble(d1, d2, decimalPoint).toInt()
+
+    // 除法运算
+    @JvmStatic
+    fun divToInt(d1: Double, d2: Int, decimalPoint: Int = DECIMAL_POINT_NUMBER): Int =
+        divToDouble(d1, d2, decimalPoint).toInt()
+
+
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    // 除法运算
+    @JvmStatic
+    fun div(d1: Int, d2: Int, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
+        divToDouble(d1, d2, decimalPoint)
+
+    // 除法运算
+    @JvmStatic
+    fun div(d1: Long, d2: Long, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
+        divToDouble(d1, d2, decimalPoint)
+
+    // 除法运算
+    @JvmStatic
+    fun div(d1: Double, d2: Double, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
+        divToDouble(d1, d2, decimalPoint)
+
+    // 除法运算
+    @JvmStatic
+    fun div(d1: Double, d2: Long, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
+        divToDouble(d1, d2, decimalPoint)
+
+    // 除法运算
+    @JvmStatic
+    fun div(d1: Long, d2: Double, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
+        divToDouble(d1, d2, decimalPoint)
+
+    // 除法运算
+    @JvmStatic
+    fun div(d1: Int, d2: Long, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
+        divToDouble(d1, d2, decimalPoint)
+
+    // 除法运算
+    @JvmStatic
+    fun div(d1: Long, d2: Int, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
+        divToDouble(d1, d2, decimalPoint)
+
+    // 除法运算
+    @JvmStatic
+    fun div(d1: Int, d2: Double, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
+        divToDouble(d1, d2, decimalPoint)
+
+    // 除法运算
+    @JvmStatic
+    fun div(d1: Double, d2: Int, decimalPoint: Int = DECIMAL_POINT_NUMBER): Double =
+        divToDouble(d1, d2, decimalPoint)
+
+
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    // 除法运算
+    @JvmStatic
+    fun div(d1: Int, d2: Int): Double =
+        divToDouble(d1, d2, DECIMAL_POINT_NUMBER)
+
+    // 除法运算
+    @JvmStatic
+    fun div(d1: Long, d2: Long): Double =
+        divToDouble(d1, d2, DECIMAL_POINT_NUMBER)
+
+    // 除法运算
+    @JvmStatic
+    fun div(d1: Double, d2: Double): Double =
+        divToDouble(d1, d2, DECIMAL_POINT_NUMBER)
+
+    // 除法运算
+    @JvmStatic
+    fun div(d1: Double, d2: Long): Double =
+        divToDouble(d1, d2, DECIMAL_POINT_NUMBER)
+
+    // 除法运算
+    @JvmStatic
+    fun div(d1: Long, d2: Double): Double =
+        divToDouble(d1, d2, DECIMAL_POINT_NUMBER)
+
+    // 除法运算
+    @JvmStatic
+    fun div(d1: Int, d2: Long): Double =
+        divToDouble(d1, d2, DECIMAL_POINT_NUMBER)
+
+    // 除法运算
+    @JvmStatic
+    fun div(d1: Long, d2: Int): Double =
+        divToDouble(d1, d2, DECIMAL_POINT_NUMBER)
+
+    // 除法运算
+    @JvmStatic
+    fun div(d1: Int, d2: Double): Double =
+        divToDouble(d1, d2, DECIMAL_POINT_NUMBER)
+
+    // 除法运算
+    @JvmStatic
+    fun div(d1: Double, d2: Int): Double =
+        divToDouble(d1, d2, DECIMAL_POINT_NUMBER)
+
+
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     // 除法运算
     @JvmStatic
@@ -213,6 +456,9 @@ object BigDecimalUtils {
         div(BigDecimal.valueOf(d1), BigDecimal(d2), decimalPoint)
 
 
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
     // 加法运算
     @JvmStatic
     fun add(b1: BigDecimal, b2: BigDecimal): Double = add(b1, b2, DECIMAL_POINT_NUMBER)
@@ -222,6 +468,9 @@ object BigDecimalUtils {
     fun add(b1: BigDecimal, b2: BigDecimal, decimalPoint: Int): Double =
         b1.add(b2).setScale(decimalPoint, BigDecimal.ROUND_DOWN)
             .toDouble()
+
+
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     // 减法运算
     @JvmStatic
@@ -233,6 +482,9 @@ object BigDecimalUtils {
         b1.subtract(b2)
             .setScale(decimalPoint, BigDecimal.ROUND_DOWN).toDouble()
 
+
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
     // 乘法运算
     @JvmStatic
     fun mul(b1: BigDecimal, b2: BigDecimal): Double = mul(b1, b2, DECIMAL_POINT_NUMBER)
@@ -242,6 +494,9 @@ object BigDecimalUtils {
     fun mul(b1: BigDecimal, b2: BigDecimal, decimalPoint: Int): Double =
         b1.multiply(b2).setScale(decimalPoint, BigDecimal.ROUND_DOWN)
             .toDouble()
+
+
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     // 除法运算
     @JvmStatic
@@ -253,6 +508,8 @@ object BigDecimalUtils {
         b1.divide(b2, decimalPoint, BigDecimal.ROUND_DOWN)
             .toDouble()
 
+
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     /**
      * 两个数值比较
@@ -333,6 +590,9 @@ object BigDecimalUtils {
         return value.compareTo(num)
     }
 
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
     @JvmStatic
     fun toPlainString(
         value: Double,
@@ -383,6 +643,9 @@ object BigDecimalUtils {
                 .toPlainString()
         }
     }
+
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
     /**
      * 数值是否为 0
