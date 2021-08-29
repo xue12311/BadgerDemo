@@ -48,6 +48,24 @@ fun String?.onStringToInt(): Int {
 }
 
 /**
+ * string 转 Long
+ */
+fun String?.onStringToLong(): Long {
+    if (StringUtils.isTrimEmpty(this)) {
+        return 0
+    } else {
+        try {
+            return this?.toLong() ?: 0
+        } catch (e: Exception) {
+            if (e is NumberFormatException) {
+                return onStringToDouble().toLong()
+            } else {
+                return 0
+            }
+        }
+    }
+}
+/**
  *
  * @receiver String? a
  * @param otherText String b
