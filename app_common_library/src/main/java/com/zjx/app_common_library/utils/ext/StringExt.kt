@@ -16,14 +16,20 @@ fun String?.isNoEmpty(): Boolean = !StringUtils.isEmpty(this)
 /**
  * string 转 double
  */
-fun String?.onStringToDouble(): Double {
+fun String?.onStringToDouble(): Double =
+    onStringToDouble(0.0)
+
+/**
+ * string 转 double
+ */
+fun String?.onStringToDouble(mDefaultsNum: Double): Double {
     if (StringUtils.isTrimEmpty(this)) {
-        return 0.0
+        return mDefaultsNum
     } else {
         try {
-            return this?.toDouble() ?: 0.0
+            return this?.toDouble() ?: mDefaultsNum
         } catch (e: Exception) {
-            return 0.0
+            return mDefaultsNum
         }
     }
 }
@@ -31,17 +37,26 @@ fun String?.onStringToDouble(): Double {
 /**
  * string 转 int
  */
-fun String?.onStringToInt(): Int {
+fun String?.onStringToInt(): Int = onStringToInt(0)
+
+/**
+ * string 转 int
+ */
+fun String?.onStringToInt(mDefaultsNum: Int): Int {
     if (StringUtils.isTrimEmpty(this)) {
-        return 0
+        return mDefaultsNum
     } else {
         try {
-            return this?.toInt() ?: 0
+            return this?.toInt() ?: mDefaultsNum
         } catch (e: Exception) {
             if (e is NumberFormatException) {
-                return onStringToDouble().toInt()
+                try {
+                    return onStringToDouble(mDefaultsNum.toDouble()).toInt()
+                } catch (e: Exception) {
+                    return onStringToDouble().toInt()
+                }
             } else {
-                return 0
+                return mDefaultsNum
             }
         }
     }
@@ -50,21 +65,30 @@ fun String?.onStringToInt(): Int {
 /**
  * string 转 Long
  */
-fun String?.onStringToLong(): Long {
+fun String?.onStringToLong(): Long =onStringToLong(0)
+/**
+ * string 转 Long
+ */
+fun String?.onStringToLong(mDefaultsNum: Long): Long {
     if (StringUtils.isTrimEmpty(this)) {
-        return 0
+        return mDefaultsNum
     } else {
         try {
-            return this?.toLong() ?: 0
+            return this?.toLong() ?: mDefaultsNum
         } catch (e: Exception) {
             if (e is NumberFormatException) {
-                return onStringToDouble().toLong()
+                try {
+                    return onStringToDouble(mDefaultsNum.toDouble()).toLong()
+                } catch (e: Exception) {
+                    return onStringToDouble().toLong()
+                }
             } else {
-                return 0
+                return mDefaultsNum
             }
         }
     }
 }
+
 /**
  *
  * @receiver String? a
@@ -108,21 +132,21 @@ fun String?.onStringNextOrBeforeDateToCalendar(
  *  年 时间  + 以后  , - 以前
  */
 fun String?.onStringNextOrBeforeYearToCalendar(
-    year: Int? = null
+    year: Int? = null,
 ) = onStringNextOrBeforeToCalendar(year, null, null, null, null, null)
 
 /**
  *  月份 时间  + 以后  , - 以前
  */
 fun String?.onStringNextOrBeforeMonthToCalendar(
-    month: Int? = null
+    month: Int? = null,
 ) = onStringNextOrBeforeToCalendar(null, month, null, null, null, null)
 
 /**
  *  天 时间  + 以后  , - 以前
  */
 fun String?.onStringNextOrBeforeDayToCalendar(
-    day: Int? = null
+    day: Int? = null,
 ) = onStringNextOrBeforeToCalendar(null, null, day, null, null, null)
 
 /**
@@ -138,21 +162,21 @@ fun String?.onStringNextOrBeforeTimeToCalendar(
  *  时 时间  + 以后  , - 以前
  */
 fun String?.onStringNextOrBeforeHourToCalendar(
-    hour: Int? = null
+    hour: Int? = null,
 ) = onStringNextOrBeforeToCalendar(null, null, null, hour, null, null)
 
 /**
  *  分钟 时间  + 以后  , - 以前
  */
 fun String?.onStringNextOrBeforeMinuteToCalendar(
-    minute: Int? = null
+    minute: Int? = null,
 ) = onStringNextOrBeforeToCalendar(null, null, null, null, minute, null)
 
 /**
  *  秒 时间  + 以后  , - 以前
  */
 fun String?.onStringNextOrBeforeSecondToCalendar(
-    second: Int? = null
+    second: Int? = null,
 ) = onStringNextOrBeforeToCalendar(null, null, null, null, null, second)
 
 /**
@@ -164,7 +188,7 @@ fun String?.onStringNextOrBeforeToCalendar(
     day: Int? = null,
     hour: Int? = null,
     minute: Int? = null,
-    second: Int? = null
+    second: Int? = null,
 ): Calendar {
     return this.onStringToCalendar().apply {
         if (year != null) {
