@@ -1,4 +1,4 @@
-package com.zjx.app_common_library.base
+package com.zjx.app_common_library.ext
 
 import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity

@@ -1,4 +1,4 @@
-package com.zjx.app_common_library.base
+package com.zjx.app_common_library.ext
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope

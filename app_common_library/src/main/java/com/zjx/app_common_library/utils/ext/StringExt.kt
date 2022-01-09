@@ -17,7 +17,7 @@ fun String?.isNoEmpty(): Boolean = !StringUtils.isEmpty(this)
  * string 转 double
  */
 fun String?.onStringToDouble(): Double =
-    onStringToDouble(0.0)
+    onStringToDouble(BigDecimalUtils.zero_double)
 
 /**
  * string 转 double
@@ -37,7 +37,7 @@ fun String?.onStringToDouble(mDefaultsNum: Double): Double {
 /**
  * string 转 int
  */
-fun String?.onStringToInt(): Int = onStringToInt(0)
+fun String?.onStringToInt(): Int = onStringToInt(BigDecimalUtils.zero_int)
 
 /**
  * string 转 int
@@ -65,7 +65,8 @@ fun String?.onStringToInt(mDefaultsNum: Int): Int {
 /**
  * string 转 Long
  */
-fun String?.onStringToLong(): Long =onStringToLong(0)
+fun String?.onStringToLong(): Long = onStringToLong(BigDecimalUtils.zero_long)
+
 /**
  * string 转 Long
  */
