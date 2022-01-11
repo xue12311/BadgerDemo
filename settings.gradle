@@ -1,2 +1,1 @@
-include ':app_common_library'
-include ':app'
+include ':library'
