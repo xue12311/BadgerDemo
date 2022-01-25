@@ -2,12 +2,15 @@ buildscript {
     ext.kotlin_version = "1.6.10"
     repositories {
         google()
-        jcenter()
         mavenCentral()
     }
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.0"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // 自动化maven打包插件
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+
+
     }
 }
 
@@ -15,8 +18,12 @@ allprojects {
     repositories {
         mavenCentral()
         google()
-        maven { url "https://jitpack.io" }
-        jcenter()
+        maven {
+            url 'https://www.jitpack.io'
+            credentials {
+                username authToken
+            }
+        }
     }
 }
 
