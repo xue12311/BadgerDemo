@@ -5,25 +5,16 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:7.0.4"
+        classpath 'com.android.tools.build:gradle:4.2.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        // 自动化maven打包插件
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
-
-
     }
 }
 
 allprojects {
     repositories {
-        mavenCentral()
         google()
-        maven {
-            url 'https://www.jitpack.io'
-            credentials {
-                username authToken
-            }
-        }
+        maven { url "https://jitpack.io" }
+        mavenCentral()
     }
 }
 
