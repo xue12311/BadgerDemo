@@ -6,7 +6,7 @@ fun List<String>.forEachListToString(divider: String?): String =
     forEachListToString({ it }, divider)
 
 fun <T> List<T>.forEachListToString(getParameterToString: (T) -> String?): String =
-    forEachListToString(false, getParameterToString, null)
+    forEachListToString(false, getParameterToString, ",")
 
 fun <T> List<T>.forEachListToString(
     getParameterToString: (T) -> String?,
@@ -16,7 +16,7 @@ fun <T> List<T>.forEachListToString(
 fun <T> List<T>.forEachListToString(
     isEnableNullOrEmpty: Boolean,
     getParameterToString: (T) -> String?,
-): String = forEachListToString(isEnableNullOrEmpty, getParameterToString, null)
+): String = forEachListToString(isEnableNullOrEmpty, getParameterToString,",")
 
 /**
  * 多个 字符串 拼接

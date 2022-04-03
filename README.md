@@ -10,6 +10,6 @@ allprojects {
 
   ```
   dependencies {
-	        implementation 'com.github.xue12311:app_common_library:1.1.2'
+	        implementation 'com.github.xue12311:app_common_library:1.1.3'
 	}
   ```
